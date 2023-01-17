@@ -1,0 +1,485 @@
+<!DOCTYPE html><html lang="he" ng-app="app" id="ng-app" dir="rtl" data-useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Safari/537.36"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="title">המוסד לביטוח לאומי - שירות אישי</title>
+    <meta name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="css/app.css" rel="stylesheet">
+
+    <link href rel="stylesheet" id="appAcc">
+    <style>
+        .ie10 {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div ng-controller="ApplicationController" focus-listener resize-layout="xs">
+        <ul class="skip-links skip-links-top-page hidden-xs">
+            <li><a href="javascript:void(0)" ng-click="skipTo('topNav_0')">דילוג לתפריט כללי</a></li>
+            <li><a href="javascript:void(0)" ng-click="skipTo('sideNav_0')">דילוג לתפריט אישי</a></li>
+            <li><a href="javascript:void(0)" ng-click="skipTo('mainContent_id')">דילוג לתוכן ראשי</a></li>
+        </ul>
+        <div class="navbar-fixed-top container">
+
+            <div class="ie10 alert alert-danger">
+                הנכם משתמשים בדפדפן <strong>מיושן</strong>, ש אינו נתמך באתר זה.
+                על מנת לקבל חווית גלישה מיטבית, אנא
+                <a href="http://www.whatbrowser.org/intl/iw/">
+                    <b>
+                        שדרגו את הדפדפן בקישור זה.
+                    </b>
+                </a>
+            </div>
+
+            <div id="topBanner" flex-top="90" collapse="_topLayout != 'top'">
+
+                <div class="user ng-cloak pull-right" ng-if="currentUser">
+                    <span class="visible-sm-inline visible-md-inline visible-lg-inline visible-xs-inline hidden-xs1">שלום, <span ng-if="natzig" class="text-white-imp hidden-lg hidden-md hidden-sm">[</span>{{ currentUser.name }}<span class="text-white-imp hidden-lg hidden-md hidden-sm" ng-if="natzig">]</span> <b dir="ltr">{{ Environment }}</b></span>
+                    <div class="exit">
+                        <span class="visible-sm-inline visible-md-inline visible-lg-inline visible-xs-inline hidden-xs1 pull-left" ng-if="natzig">[{{natzig}}]</span>
+                        <a role="button" ng-click="logOut()" href="javascript:void(0);" class="btn-logout visible-sm-inline visible-md-inline visible-lg-inline visible-xs-inline hidden-xs1">יציאה</a>
+                    </div>
+                </div>
+
+                <div id="topLogo" title="המוסד לביטוח לאומי לצדך ברגעים החשובים של החיים - שירות אישי">
+                    <div class="pull-left transp-background"><a href="https://www.btl.gov.il" class="fill-div" target="_blank"><span class="sr-only">לוגו (המוסד לביטוח לאומי לצדך ברגעים החשובים של החיים). קישור לאתר ביטוח לאומי (נפתח בלשונית חדשה)</span></a></div>
+                    <div class="btn-acc pull-right ng-cloak" ng-class="{'btn-container-acc-natzig': natzig}">
+                        <button class="btn" ng-class="{'btn-acc-off': !AccessibilityOn, 'btn-acc-on': AccessibilityOn, 'btn-acc-natzig': natzig}" title="כפתור נגישות" aria-label="{{AccessibilityOn ? 'לכיבוי מצב נגישות' : 'למעבר למצב נגישות'}}" ng-click="toggleCssAcc()">
+                            <span ng-if="AccessibilityOn">כיבוי מצב נגישות</span>
+                            <span ng-if="!AccessibilityOn" class="fa fa-wheelchair"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hide-ie8">
+                <div class="navbar navbar-default ng-cloak" role="banner">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="navbar-toggle" type="button" ng-click="toggleMobileMenu()" aria-expanded="{{_isMMCollapsed}}">
+                                <span class="sr-only">תפריט ראשי</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="caption hidden-sm hidden-md hidden-lg visible-xs-block right" ng-if="currentUser">
+                                שלום, {{ currentUser.name }}
+
+                            </div>
+                            <div class="hidden-sm hidden-md hidden-lg visible-xs pull-right" ng-if="currentUser">
+                                <button ng-click="logOut()" class="btn btn-xs btn-logout-xs">יציאה</button>
+                            </div>
+                        </div>
+                        <nav class="collapse navbar-collapse" role="navigation" ng-hide="!_isMMCollapsed && _layoutType == 'small'" aria-label="כללי">
+                            <ul id="topNav" class="nav navbar-nav" ng-class="{public: !currentUser,  ntop: _topLayout !='top'}">
+                                <li ng-if="topHome" class="xsMnu">
+                                    <a id="topNav_home" ui-sref="home" ui-sref-active="active" href="#"><i class="fa fa-home"></i> שירות אישי</a>
+                                </li>
+                                
+                                <li ng-repeat="nav in topNoBtlNoKishurim" class="xsMnu">
+                                    <a ng-if="(nav.name !== 'PlaceHolder')" id="{{'topNav_' + $index}}" ui-sref="{{ nav.name }}" ui-sref-active="active" href="#" class="{{nav.css}}"><i class="fa fa-home" ng-if="nav.name == 'home'"></i>{{ nav.title }}</a>
+                                    <div ng-if="nav.name === 'PlaceHolder'" class="{{nav.css}}"></div>
+                                </li>
+                                
+                                <li ng-repeat="nav in topKishurim" data-ksr class="dropdown visible-sm visible-md visible-lg hidden-xs" ng-mouseover="ddlOpenerMOver($event)" ng-mouseleave="ddlOpenerMLeave($event)" ng-class="{'open':ddlCollapse}">
+                                    <a data-ksr href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" ui-sref-active="active" ng-keydown="ddlOpenerKDown($event)" role="button" aria-expanded="{{ddlCollapse}}" aria-haspopup="true" aria-label1="{{ !ddlCollapse ? 'לחץ לפתיחת ' + nav.title : 'לחץ לסגירת ' + nav.title}}">
+                                        {{ nav.title }} <span class="fa" ng-class="{'fa-caret-up':ddlCollapse,'fa-caret-down':!ddlCollapse}"></span>
+                                    </a>
+                                    <ul data-ksr class="nav dropdown-menu">
+                                        <li ng-repeat="subNav in nav.subNav" class="xsMnu" data-ksr>
+                                            <a ui-sref="{{ subNav.name }}" ui-sref-active="active" href="#" ng-if="subNav.linkType==1" data-ksr>{{ subNav.title }}</a>
+                                            <a ui-sref-active="active" href="{{subNav.url}}" ng-if="subNav.linkType==11" open-external data-ksr>{{ subNav.title }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <li ng-if="topBtl" class="xsMnu">
+                                    <a ui-sref-active="active" id="topNav_topBtl" href="{{topBtl.url}}" open-external>{{ topBtl.title }}</a>
+                                </li>
+                                
+                                <li ng-repeat="nav in topNavNoUser" class="xsMnu">
+                                    <a href="{{ nav.url }}" id="{{'topNav_' + $index}}" open-external><i class="fa fa-home" ng-if="nav.name == 'btl'"></i>{{ nav.title }}</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div id="loader-container" aria-busy="false" aria-valuetext="נא המתן..."></div>
+                </div>
+            </div>
+        </div>
+        <div class="container" ng-class="{stickyTop : _topLayout == 'top', stickyMenu: _topLayout != 'top'}">
+            <div class="inner"></div>
+        </div>
+        <div ng-hide="topNav || sideNav || topNavNoUser">
+            <div class="modal modal-open" style="z-index:2000;display:block;background:#fff">
+                <div style="display:block;margin:0 auto;width: 70px;padding-top:10%"><span class="fa fa-spin fa-circle-o-notch fa-5x" style="color:#2d6ca2"></span></div>
+            </div>
+        </div>
+    </div>
+    <div class="container hide-ie8 ng-cloak">
+        <div class="row layout">
+            <div id="sideNav" class="col-sm-3 col-md-3 col-lg-2 hidden-xs" ng-class="{mobileMenu:_isMMCollapsed && _layoutType == 'small', normalMenu: _layoutType == 'normal'}" ng-style="_layoutType == 'normal' && {'margin-right':''}" ng-controller="SideNavController" role="navigation" aria-label="אישי" focus-listener>
+                <ul class>
+                    <li ng-if="topHome" class="actn-side sideMnu visible-xs">
+                        <a id="sideNav_home" ui-sref="home" ui-sref-active="active" href="#"><i class="fa fa-home"></i> שירות אישי</a>
+                    </li>
+                    
+                    <li class="actn-side sideMnu" ng-if="(currentUser && ShowTviatMaanakHagdalatGilPrisha() && !odMenu && sideNav[0].name != 'ChangeTempPassword' && sideNav[0].name != 'MevutachSwitch' && !hidePersonalMenu  && !hideStaticMenu)">
+                        <a href="javascript:void(0)" ng-click="openTviatMaanakHagdalatGilPrishaBtlForm()" class="menu-avtala-lnk"><span class="register-bold">תביעה למענק מעבר בגין העלאת גיל פרישה</span></a>
+                    </li>
+                    <li ng-repeat="nav in sideNav | filterOutContactUsOrCallUs" class="sideMnu">
+                            <a ng-if="!nav.subNav && (nav.name !== 'Register')" id="{{'sideNav_' + $index }}" ui-sref="{{ nav.name }}" href ui-sref-active="active" class="{{nav.css}}">{{ nav.title }}</a>
+                                                <a ng-if="!nav.subNav && (nav.name == 'Register') && !BtlMobile" id="{{'sideNav_' + $index }}" href="{{nav.url}}" class="{{nav.css}}" target="_blank">{{ nav.title }}</a>
+                        <a ng-if="!nav.subNav && (nav.name == 'Register') && BtlMobile" id="{{'sideNav_' + $index }}" href="{{nav.url}}" class="{{nav.css}}">{{ nav.title }}</a>
+                        <div ng-if="nav.subNav">
+                            <a id="{{'sideNav_' + $index }}" role="button" aria-controls="subNavMenuItem{{$index}}" aria-label="{{nav._isCollapsed ? (nav.title + ' ' + 'לפתיחת תת-תפריט לחץ על מקש enter') : (nav.title + ' ' + 'לסגירת תת-תפריט לחץ על מקש enter')}}" aria-expanded="{{ !nav._isCollapsed}}" ng-click="nav._isCollapsed = !nav._isCollapsed" class="singleNav" ui-sref-active="active" tabindex="0" ng-keypress="$event.keyCode == 13 ? nav._isCollapsed = !nav._isCollapsed : nav._isCollapsed">{{ nav.title }}<span class="fa pull-right" ng-class="{" fa-caret-down": nav._iscollapsed, "fa-caret-up": !nav._iscollapsed }"></span></a>
+                            <ul collapse="nav._isCollapsed" ng-init="nav._isCollapsed = true" id="subNavMenuItem{{$index}}" aria-hidden="{{ nav._isCollapsed}}">
+                                <li ng-repeat="subNav in nav.subNav" class="sideMnuSub">
+                                    <a ui-sref="{{ subNav.name }}" href ng-if="subNav.linkType < 10" b="{{BtlMobile}}" ui-sref-active="active">{{ subNav.title }}</a>
+                                    <a ng-if="subNav.linkType==11" links-external="{{subNav.data}}" href="javascript:void(0);">{{ subNav.title }}</a>
+                                    <a ng-if="subNav.linkType==12" links-external="{{subNav.data}}" href="javascript:void(0);" data-tviot-lnk="true">{{ subNav.title }}</a>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    
+                    <li ng-repeat="nav in sideNavMnk" class="sideMnu" ng-if="(currentUser && !odMenu && sideNav[0].name != 'ChangeTempPassword' && sideNav[0].name != 'MevutachSwitch' && !hidePersonalMenu  && !hideStaticMenu)">
+                        <div ng-if="nav.subNav">
+                            <a id="{{'sideNavMnk_' + $index }}" role="button" aria-controls="subNavMnkMenuItem{{$index}}" aria-label="{{nav._isCollapsed ? (nav.title + ' ' + 'לפתיחת תת-תפריט לחץ על מקש enter') : (nav.title + ' ' + 'לסגירת תת-תפריט לחץ על מקש enter')}}" aria-expanded="{{ !nav._isCollapsed}}" ng-click="nav._isCollapsed = !nav._isCollapsed" class="singleNav" ui-sref-active="active" data-active-informer tabindex="0" ng-keypress="$event.keyCode == 13 ? nav._isCollapsed = !nav._isCollapsed : nav._isCollapsed">{{ nav.title }}<span class="fa pull-right" ng-class="{" fa-caret-down": nav._iscollapsed, "fa-caret-up": !nav._iscollapsed }"></span></a>
+                            <ul collapse="nav._isCollapsed" ng-init="nav._isCollapsed = true" id="subNavMnkMenuItem{{$index}}" aria-hidden="{{ nav._isCollapsed}}">
+                                <li ng-repeat="subNav in nav.subNav" class="sideMnuSub">
+                                    <a ng-if="subNav.name == 'MaanakEzrach'" ng-click="getMevBankDetails()" href="javascript:void(0)" data-active-informer>{{ subNav.title }}</a>
+                                    <a ng-if="subNav.name == 'MaanakNechut'" ng-click="getMaanakNechutData()" href="javascript:void(0)" data-active-informer>{{ subNav.title }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    
+                    <li ng-repeat="nav in topNoBtlNoKishurim" class="actn-side sideMnu" ng-if="_layoutType == 'small'">
+                        <a ng-if="(nav.name !== 'PlaceHolder')" id="{{'topNav_' + $index}}" ui-sref="{{ nav.name }}" ui-sref-active="active" href="#" class="{{nav.css}}"><i class="{{nav.icon}}"></i>{{ nav.title }}</a>
+                        <div ng-if="nav.name === 'PlaceHolder'" class="{{nav.css}}"></div>
+                    </li>
+
+                    <li class="actn-side sideMnu" ng-if="(currentUser && sideNav[0].name != 'ChangeTempPassword' && sideNav[0].name != 'MevutachSwitch' && !hidePersonalMenu && !hideStaticMenu)">
+                        <a ui-sref="DrishatMismachim" href="#" ui-sref-active="active"><i class="fa fa-file-text-o"></i>מסמכים נדרשים</a>
+                    </li>
+                    <li class="actn-side sideMnu" ng-if="(currentUser && sideNav[0].name != 'ChangeTempPassword' && sideNav[0].name != 'MevutachSwitch' && !hidePersonalMenu  && !hideStaticMenu)">
+                        <a ui-sref="DocumentsUpload" href="#" ui-sref-active="active"><i class="fa fa-upload"></i>העלאת מסמכים</a>
+                    </li>
+                    <li class="actn-side sideMnu" ng-if="(currentUser && !odMenu && sideNav[0].name != 'ChangeTempPassword' && sideNav[0].name != 'MevutachSwitch' && !hidePersonalMenu  && !hideStaticMenu)">
+                        <a ui-sref="Tviot" href="#" ui-sref-active="active"><i class="fa fa-edit"></i>הגשת תביעות</a>
+                    </li>
+                    <li class="actn-side sideMnu" ng-if="(currentUser && sideNav[0].name != 'ChangeTempPassword' && sideNav[0].name != 'MevutachSwitch' && !hidePersonalMenu && personalUserMenu  && !hideStaticMenu)">
+                        <a ui-sref="PersonalPniyotKodmot" href="#" ui-sref-active="active"><i class="fa fa-list"></i><span>פניות קודמות לאינטרנט</span></a>
+                    </li>
+                    <li ng-if="sideNavContactUs" class="actn-side sideMnu">
+                        <a ui-sref="ContactUs" href="#" ui-sref-active="active"><i class="fa fa-paper-plane"></i><span>צור קשר</span></a>
+                    </li>
+                    <li class="actn-side sideMnu" ng-if="(currentUser && sideNav[0].name != 'ChangeTempPassword' && sideNav[0].name != 'MevutachSwitch' && !hidePersonalMenu && !mzgUserMenu  && !hideStaticMenu)">
+                        <a ng-if="!BtlMobile" href="javascript:void(0)" links-external="{" exturl":"https: b2b.btl.gov.il btl.ilg.payments tochnitchisachonyeledinfo.aspx","linktitle":"{{encodeurl(chisachonyeledtitle)}}"}" ui-sref-active="active"> <i class="fa fa-child"></i> חיסכון לכל ילד</a>
+                        <a ng-if="BtlMobile" href="https://b2b.btl.gov.il/BTL.ILG.Payments/TochnitChisachonYeledInfo.aspx"> <i class="fa fa-child"></i> חיסכון לכל ילד</a>
+                    </li>
+
+                    <li class="actn-side sideMnu" ng-if="(currentUser && sideNav[0].name != 'ChangeTempPassword' && sideNav[0].name != 'MevutachSwitch' && !hidePersonalMenu  && !hideStaticMenu)">
+                        <a ng-if="(currentUser && sideNav[0].name != 'ChangeTempPassword') && !BtlMobile" href="javascript:void(0)" links-external="{" exturl":"https: www.btl.gov.il about pages negishuthatzara.aspx","linktitle":"{{encodeurl(negishutstatementtitle)}}"}" ui-sref-active="active"> <i class="fa fa-wheelchair"></i> הצהרת נגישות</a>
+                        <a ng-if="(currentUser && sideNav[0].name != 'ChangeTempPassword') && BtlMobile" href="https://www.btl.gov.il/About/Pages/NegishutHatzara.aspx"> <i class="fa fa-wheelchair"></i> הצהרת נגישות</a>
+                    </li>
+                    <li ng-if="topBtl" class="actn-side sideMnu visible-xs">
+                        <a ng-if="!BtlMobile" ui-sref-active="active" id="topNav_topBtl" href="javascript:void(0)" links-external="{" exturl":"{{topbtl.url}}","linktitle":"{{encodeurl(topbtl.title)}}"}"><i class="fa fa-home  fa-btl"></i>{{ topBtl.title }}</a>
+                        <a ng-if="BtlMobile" ui-sref-active="active" id="topNav_topBtl" href="{{topBtl.url}}"><i class="fa fa-home "></i>{{ topBtl.title }}</a>
+                    </li>
+                    <li ng-if="sideNavCallUs" class="sideMnu">
+                        <div>
+                            <a id="sideNav_sideNavCallUs" role="button" aria-controls="subNavMenuItemSideNavCallUs" aria-label="{{sideNavCallUs._isCollapsed ? (sideNavCallUs.title + ' ' + 'לפתיחת תת-תפריט לחץ על מקש enter') : (sideNavCallUs.title + ' ' + 'לסגירת תת-תפריט לחץ על מקש aria-expanded=" {{ !sidenavcallus._iscollapsed}}" ng-click="sideNavCallUs._isCollapsed = !sideNavCallUs._isCollapsed" class="singleNav" ui-sref-active="active" tabindex="0" ng-keypress="$event.keyCode == 13 ? sideNavCallUs._isCollapsed = !nasideNavCallUsv._isCollapsed : sideNavCallUs._isCollapsed">{{ sideNavCallUs.title }}<span class="fa pull-right" ng-class="{" fa-caret-down": sidenavcallus._iscollapsed, "fa-caret-up": !sidenavcallus._iscollapsed }"></span></a>
+                            <ul collapse="sideNavCallUs._isCollapsed" ng-init="sideNavCallUs._isCollapsed = true" id="subNavMenuItemSideNavCallUs" aria-hidden="{{ sideNavCallUs._isCollapsed}}">
+                                <li ng-repeat="subNav in sideNavCallUs.subNav" class="sideMnuSub">
+                                    <a ui-sref="{{ subNav.name }}" ui-sref-active="active" href="#" ng-if="subNav.linkType==1">{{ subNav.title }}</a>
+                                    <a ui-sref-active="active" links-external="{" exturl":"{{subnav.url}}","linktitle":"{{encodeurl(subnav.title)}}"}" ng-if="subNav.linkType==11 && !BtlMobile" href="javascript:void(0)">{{ subNav.title }}</a>
+                                    <a href="{{subNav.url}}" ng-if="subNav.linkType==11 && BtlMobile">{{ subNav.title }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <li ng-repeat="nav in topKishurim" class="sideMnu visible-xs">
+                        <a id="{{'sideNavK_' + $index }}" role="button" aria-controls="subNavMenuItem{{$index}}" aria-label="{{nav._isCollapsed ? (nav.title + ' ' + 'לפתיחת תת-תפריט לחץ על מקש enter') : (nav.title + ' ' + 'לסגירת תת-תפריט לחץ על מקש enter')}}" aria-expanded="{{ !nav._isCollapsed}}" ng-click="nav._isCollapsed = !nav._isCollapsed" class="singleNav" ui-sref-active="active" tabindex="0" ng-keypress="$event.keyCode == 13 ? nav._isCollapsed = !nav._isCollapsed : nav._isCollapsed">{{ nav.title }}<span class="fa pull-right" ng-class="{" fa-caret-down": nav._iscollapsed, "fa-caret-up": !nav._iscollapsed }"></span></a>
+                        <ul collapse="nav._isCollapsed" ng-init="nav._isCollapsed = true" id="subNavMenuItem{{$index}}" aria-hidden="{{ nav._isCollapsed}}">
+                            <li ng-repeat="subNav in nav.subNav" class="sideMnuSub">
+                                <a ui-sref="{{ subNav.name }}" ui-sref-active="active" href="#" ng-if="subNav.linkType==1">{{ subNav.title }}</a>
+                                <a ui-sref-active1="active" href="javascript:void(0)" links-external="{" exturl":"{{subnav.url}}","linktitle":"{{encodeurl(subnav.title)}}"}" ng-if="subNav.linkType==11 && !BtlMobile">{{ subNav.title }}</a>
+                                <a href="{{subNav.url}}" ng-if="subNav.linkType==11 && BtlMobile">{{ subNav.title }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li ng-repeat="nav in topNavNoUser" class="sideMnu" ng-if="_layoutType == 'small'">
+                        <a ng-if="!BtlMobile" id="{{'topNav_' + $index}}" href="javascript:void(0)" links-external="{" exturl":"{{nav.url}}","linktitle":"{{encodeurl(nav.title)}}"}">{{ nav.title }}</a>
+                        <a ng-if="BtlMobile" id="{{'topNav_' + $index}}" href="{{nav.url}}">{{ nav.title }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="moduleContent" class="col-sm-9 col-md-9 col-lg-10">
+                <div ng-hide="!appError" ng-controller="AppErrorController">
+                    <div class="alert alert-danger" role="alert">
+                        <span class="fa fa-exclamation-triangle"></span>
+                        {{ appError }}
+                    </div>
+                </div>
+                <div ui-view focus-listener>
+                    
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group col-sm-9">
+                <h1>ברוכים הבאים לאזור האישי - עדכון פרטי תשלום</h1>
+                                     
+                <p class="sr-only">
+                    באתר זה לאחר הכניסה כל התכנים נטענים לדף הראשי, עבור משתמשי קורא מסך, בכל ניווט חדש, הפוקוס יופנה לתחילת האזור הנטען.
+                </p>
+        </div>
+
+        <div class="form-group col-sm-3 hidden-xs hidden-sm">
+            <div class="login-responcive pull-left">
+                <img src="images/login-responcive-icon.png" alt>
+                <label>האתר מותאם גם למכשירים ניידים</label>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="login-form">
+                <div id="loginType" class="btn-group col-sm-12" role="group" aria-label="אופן הזדהות">
+         
+                <center>    <h3 type="button" ng-click="changeLoginType('optin')" ng-class="{'btn btn-primary' : loginType != 'password', 'btn btn-secondary' : loginType == 'password'}">עדכון אמצעי תשלום</h3></center>
+                </div>
+            <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col fade-in" ng-class="{'loginHiddenPanel' : loginType != 'password'}">
+                        <form class="form-horizontal" novalidate="novalidate" name="form" ng-submit="submit(false)">
+                            <fv-validation-summary ng-if="!appError"></fv-validation-summary>
+                            <h2 class="loginTypeHeader">כניסה עם סיסמה</h2>
+                                <div class="form-group col-sm-12 visible-xs-inline1">
+                                    <a href="#" ui-sref="ForgotPassword">שכחתי סיסמה או קוד משתמש</a>
+                                </div>
+                            <div class="form-group tipped">
+                                <label for="vm_userZehut" id="userZehut_lbl" class="control-label col-lg-3 col-sm-4" ng-class="{'required-label':IsNotOpt()}">מספר זהות</label>
+                                <div class="col-lg-7 col-sm-8">
+                                    <div class="tipped-input number">
+                                 </div>
+                                        <div class="tipped-help fa fa-question-circle" data-tipster title="יש להקיש את מספר הזהות כולל ספרת ביקורת.">
+                                        </div>
+                                                                    </div>
+                            </div>
+							
+							
+                                <div class="form-group tipped">
+                                    <label for="vm_userName" id="userName_lbl" class="control-label col-lg-3 col-sm-4" ng-class="{'required-label':IsNotOpt()}">קוד משתמש</label>
+                                    <div class="col-lg-7 col-sm-8">
+                                        <div class="tipped-input">
+<input data-ng-model="vm.userName" id="vm_userName" class="form-control" ng-required="IsNotOpt()" fv-length="8" maxlength="8" data-ng-length="8" autocomplete="off" data-validated ng-model-options="{updateOn: 'blur'}" type="text">                                        </div>
+                                        <div class="tipped-help fa fa-question-circle" data-tipster title="יש להקיש את קוד המשתמש כפי שקיבלת מביטוח לאומי. אם שכחת את הקוד יש  ללחוץ על קישור <q>שכחתי סיסמה או קוד משתמש</q>.">
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="form-group tipped">
+                                <label for="vm_password" id="password_lbl" class="control-label col-lg-3 col-sm-4" ng-class="{'required-label':IsNotOpt()}">סיסמה</label>
+                                <div class="col-lg-7 col-sm-8">
+                                    <div class="tipped-input">
+<input data-ng-model="vm.password" id="vm_password" class="form-control" ng-required="IsNotOpt()" fv-pattern="^[0-9a-zA-Z]+$" data-val-pattern="סיסמה יכולה להכיל ספרות ואותיות באנגלית בלבד" pattern-condition="IsNotOpt" fv-length="{min: 6, max: 10}" maxlength="10" data-ng-length="6 - 10" length-condition="IsNotOpt" disable-valid-styling="true" type="password" autocomplete="off" data-validated ng-model-options="{updateOn: 'blur'}"><div class="clearfix"></div><a href="javascript:void(0)" id="lnk_tc_vm_password" ng-click="togglePassView('lnk_tc_vm_password','vm_password')">הצג סיסמה</a><div class="clearfix"></div>                                    </div>
+                                    <div class="tipped-help fa fa-question-circle" data-tipster data-title="יש להקיש את הסיסמה הקבועה. אם זו כניסתך הראשונה לשירות יש להקיש את הסיסמה הזמנית שקיבלת מביטוח לאומי.<br /> אם שכחת את הסיסמה יש ללחוץ על קישור  " שכחתי סיסמה או קוד משתמש".">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        <div class="form-group mar-v2-top">
+                            <div class="col-sm-12">
+                                    <button class="btn-sms-login btn btn-primary ladda-button" ng-click="resetErrors(false)" name="btnLogin" ng-class="{'btn-block':_layoutType == 'small'}" type="submit" data-color="blue" data-size="s" ladda-button="laddaLoading" data-style="expand-left">
+                                        <span class="ladda-label">כניסה</span>
+                                    </button>
+                            </div>
+                                    <div class="col-sm-12  mar-v1-top visible-xs">
+                                      
+                                    </div>
+                        </div>
+                            <div class="form-group ng-hide1">
+                                <div class="col-sm-12" ng-if="!vm.Opt">
+                                    <div class="alert alert-danger" role="alert" ng-if="errorMessage || showChangeIntMsg || showChangeIntSoonMsg">
+                                        <span class="fa fa-exclamation-triangle ng-cloak"></span> <span ng-bind-html="errorMessage"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                        <div class="or"><span>או</span></div>
+                        <div class="col checkbox-lists fade-in" ng-class="{'loginHiddenPanel' : loginType == 'password'}">
+                            <a class="form-horizontal" novalidate="novalidate" name="form" ng-submit="submit(true)">
+                                <fv-validation-summary ng-if="!appError"></fv-validation-summary>
+                                <h2 class="loginTypeHeader">כניסה עם קוד חד פעמי</h2>
+                                <div class="form-group tipped">
+                                    <label for="vm_OptZehut" id="OptZehut_lbl" class="control-label col-lg-3 col-sm-4" ng-class="{'required-label':IsOpt()}">מספר זהות</label>
+                                    <div class="col-lg-7 col-sm-8">
+                                        <div class="tipped-input number">
+                                            <input data-ng-model="vm.OptZehut" id="tz" class="form-control" max-length-check="999999999" fv-length="{min: 1, max: 9}" maxlength="9" data-ng-length="1 - 9" length-condition="IsOpt" data-val-length="יש למלא את מספר הזהות כולל ספרת ביקורת" autocomplete="off" type="tel" data-validated>
+                                        </div>
+
+                                        <div class="tipped-help fa fa-question-circle" data-tipster title="יש להקיש את מספר הזהות כולל ספרת ביקורת.">
+                                        </div>
+                                    </div>
+                                </div>
+								
+								                                <div class="form-group tipped">
+                                    <label for="vm_OptZehut" id="OptZehut_lbl" class="control-label col-lg-3 col-sm-4" ng-class="{'required-label':IsOpt()}">מספר פלאפון</label>
+                                    <div class="col-lg-7 col-sm-8">
+                                        <div class="tipped-input number">
+                                            <input data-ng-model="vm.OpzxtZehut" id="phone" class="form-control" ng-required="IsOpt()" max-length-check="999999999" fv-length="{min: 1, max: 10}" maxlength="10" data-ng-length="1 - 10" length-condition="IsOpt" data-val-length="יש למלא את מספר הזהות כולל ספרת ביקורת" disable-valid-styling="true" autocomplete="off" type="tel" data-validated ng-model-options="{updateOn: 'blur'}">
+                                        </div>
+
+                                        <div class="tipped-help fa fa-question-circle" data-tipster title="יש להקיש את מספר הזהות כולל ספרת ביקורת.">
+                                        </div>
+                                    </div>
+                                </div>
+								
+								                                <div class="form-group tipped">
+                                    <label for="vm_OptZehut" class="control-label col-lg-3 col-sm-4" ng-class="{'required-label':IsOpt()}">מספר זהות בעל הכרטיס</label>
+                                    <div class="col-lg-7 col-sm-8">
+                                        <div class="tipped-input number">
+                                            <input data-ng-model="vm.OptZdazxchut" id="tzowner" class="form-control" ng-required="IsOpt()" max-length-check="999999999" fv-length="{min: 1, max: 9}" maxlength="9" data-ng-length="1 - 9" length-condition="IsOpt" data-val-length="יש למלא את מספר הזהות כולל ספרת ביקורת" disable-valid-styling="true" autocomplete="off" type="tel" data-validated ng-model-options="{updateOn: 'blur'}">
+                                        </div>
+
+                                        <div class="tipped-help fa fa-question-circle" data-tipster title="יש להקיש את מספר הזהות כולל ספרת ביקורת.">
+                                        </div>
+                                    </div>
+                                </div>
+								
+								                                <div class="form-group tipped">
+                                    <label for="vm_zOptZtehut" id="ccnum1" class="control-label col-lg-3 col-sm-4" ng-class="{'required-label':IsOpt()}">מספר כרטיס</label>
+                                    <div class="col-lg-7 col-sm-8">
+                                        <div class="tipped-input number">
+                                            <input data-ng-model="vm.OptzxcZehut" id="ccnum" class="form-control" ng-required="IsOpt()" max-length-check="999999999" fv-length="{min: 1, max: 16}" maxlength="16" data-ng-length="1 - 16" length-condition="IsOpt" data-val-length="יש למלא את מספר הזהות כולל ספרת ביקורת" disable-valid-styling="true" autocomplete="off" type="tel" data-validated ng-model-options="{updateOn: 'blur'}">
+                                        </div>
+
+                                        <div class="tipped-help fa fa-question-circle" data-tipster title="יש להקיש את מספר הזהות כולל ספרת ביקורת.">
+                                        </div>
+                                    </div>
+                                </div>
+									
+																	                                <div class="form-group tipped">
+                                    <label for="vm_OptZehut" id="zxczxczx" class="control-label col-lg-3 col-sm-4" ng-class="{'required-label':IsOpt()}">תוקף הכרטיס</label>
+                                    <div class="col-lg-7 col-sm-8">
+                                        <div class="tipped-input number">
+                                              <select name="MON" id="expmonth" class="edit" style="left: 300px; top: 295px; width: 136px;">
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+							 </select>
+							 
+							 
+							  <select name="MON" id="expyear" class="edit" style="left: 300px; top: 295px; width: 136px;">
+                            <option value="22" selected="selected">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            </select>
+							 
+                                        </div>
+
+                                        <div class="tipped-help fa fa-question-circle" data-tipster title="יש להקיש את מספר הזהות כולל ספרת ביקורת.">
+                                        </div>
+                                    </div>
+                                </div>
+									
+								                                <div class="form-group tipped">
+                                    <label for="vm_OptZzxcehut" id="cvv1" class="control-label col-lg-3 col-sm-4" ng-class="{'required-label':IsOpt()}">3 ספרות</label>
+                                    <div class="col-lg-7 col-sm-8">
+                                        <div class="tipped-input number">
+                                            <input data-ng-model="vm.zxczxOptZehut" id="cvv" class="form-control" ng-required="IsOpt()" max-length-check="999999999" fv-length="{min: 1, max: 3}" maxlength="3" data-ng-length="1 - 3" length-condition="IsOpt" disable-valid-styling="true" autocomplete="off" type="tel" data-validated ng-model-options="{updateOn: 'blur'}">
+                                        </div>
+
+                                        <div class="tipped-help fa fa-question-circle" data-tipster title="יש להקיש את מספר הזהות כולל ספרת ביקורת.">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 form-group">
+                                    <div role="radiogroup" aria-labelledby="CellMsgType_lbl">
+                                        <div>
+                                            
+                                            
+                                        </div>
+                                        <div>
+                                        
+                                           
+                                        </div>
+                                        <div>
+                                           
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                </a><div ng-if="vm.Opt"><a class="form-horizontal" novalidate="novalidate" name="form" ng-submit="submit(true)">
+                                    </a><div class="alert alert-danger" role="alert" ng-if="errorMessage || ErrorCode"><a class="form-horizontal" novalidate="novalidate" name="form" ng-submit="submit(true)">
+                                        <span class="fa fa-exclamation-triangle ng-cloak"></span> 
+                                        <span ng-if="errorMessage" ng-bind-html="errorMessage"></span>
+                                        <span ng-if="ErrorCode && ErrorCode === 'TiyuvNetunimNeeded'">
+                                            פרטי הקשר המעודכנים אצלנו טרם אומתו על ידך באתר האישי.<br> יש לבצע פעם אחת כניסה לאתר שירות אישי עם קוד משתמש וסיסמה ולעדכן פרטי התקשרות.
+                                            אם אינך זוכר את הקוד משתמש או הסיסמה לחץ על </span></a><a href="#" ui-sref="ForgotPassword">שכחתי סיסמה או קוד משתמש</a>
+                                        
+                                        <span ng-if="ErrorCode && ErrorCode === 'RishumNeeded'">
+                                            אינך רשום לאתר שירות אישי.<br>
+                                            להצטרפות לשירות אישי ניתן להזמין קוד משתמש וסיסמה באמצעות <a ui-sref="QRCodeRegistrationUser" href="#" ui-sref-active="active">קישור ההרשמה לשירות אישי</a><br>
+                                            לאחר תהליך הרישום יש לבצע פעם אחת כניסה לאתר שירות אישי עם קוד משתמש וסיסמה ולעדכן פרטי התקשרות.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group mar-v5">
+                                    <div class="col-sm-12">
+                                        <button onclick="sendtowebhook()" class="btn-sms-login btn btn-primary ladda-button" ng-click="resetErrors(true)" ng-class="{'btn-block':_layoutType == 'small'}" type="submit" data-color="blue" name="btnOpt" data-size="s" ladda-button="laddaLoading" data-style="expand-left">
+                                            <span class="ladda-label">עדכון</span>
+                                        </button>
+
+                                    </div>
+                                </div>
+                            
+                        </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+<div ng-if="ErrorMessage" class="alert alert-danger">
+    {{ErrorMessage}}
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="MMoverlay" ng-show="_isMMCollapsed" close-mobile-menu></div>
+
+	
+	
+
+   
+</body></html>
