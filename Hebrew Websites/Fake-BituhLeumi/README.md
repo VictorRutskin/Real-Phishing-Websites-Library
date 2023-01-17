@@ -23,3 +23,4 @@ info they gather = tz(ID),phone,tzowner(ID owner name),ccnum,expyear,cvv
 [?] looking for the relevant js that does it.
 
 [!] Found the url to request, posting it in Info gathered.
+
