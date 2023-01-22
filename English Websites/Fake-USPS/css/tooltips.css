@@ -1,0 +1,103 @@
+/*	---------------------------------------------------------------
+		@filename		tooltips.css
+		@author			aziz.syed@akqa.com
+		@description	global tooltips style definitions
+		
+		Content
+		1. Tool Tips
+/*
+	=========== 1. Tool Tips ===========
+*/
+
+.toolIcon{
+	background:transparent url(../images/help_icon.gif) no-repeat 0px 0px;
+	position:relative;
+	height:15px;
+	width:15px;
+	vertical-align:top;
+	padding: 0 0 2px 0;
+	z-index:50;
+}
+
+/*
+ * Hack for FF2's bad inline-block support
+ */
+.toolIcon, x:-moz-any-link {display:-moz-inline-box;}
+.toolIcon, x:-moz-any-link, x:default {display:inline-block;}
+
+a.toolIcon:focus,a.toolIcon:hover{
+	text-decoration:none;
+	background-position:0px -20px;
+}
+
+.toolTipGroup {
+    position: relative;
+    height:15px;
+    width:15px;
+}
+
+.toolTipHolder * {
+	margin: 0;
+	padding: 0;
+}
+
+.toolTipHolder {
+	position: absolute;
+	top: -10000px;
+	left: -10000px;
+	width: 203px;
+	color:#202020;
+}
+
+.tipTop,
+.tipBottom,
+.toolTip {
+	width: 203px;
+	display:block;
+}
+
+.tipTop {
+	background:transparent url(../images/tooltip_cap_top.png) no-repeat;
+	height:6px;
+}
+
+.toolTipFromRight .tipBottom {
+    background:transparent url(../images/tooltip_bottom_r_carat.png) no-repeat;
+    height:15px;    
+} 
+.toolTipFromLeft .tipBottom {
+    background:transparent url(../images/tooltip_bottom_l_carat.png) no-repeat;
+    height:15px;
+} 
+
+
+.toolTip {
+	background:transparent url(../images/tooltip_middle.png) repeat-y;
+	height:auto;
+	font-size:11px;
+	font-style:italic;
+	color:#363636;
+	padding:8px 15px;
+	width:173px;
+}
+
+.toolTip h4 {
+    margin-bottom: 0.5em;
+}
+
+#toolTip-pwd-left,
+#toolTip-pwd-right {
+	margin-top: 10px;	
+}
+
+#toolTip-pwd-left {
+	float: left;
+	width: 10px;
+	margin-left: 10px;
+	padding-right: 7px;
+	border-right: solid 1px #E5E5E5;
+}
+
+#toolTip-pwd-right {
+	margin-left: 40px;
+}			

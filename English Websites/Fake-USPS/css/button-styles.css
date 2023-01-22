@@ -1,0 +1,385 @@
+/*	---------------------------------------------------------------
+		@filename		button-styles.css
+		@author			aziz.syed@akqa.com
+		@description	buttonss global style definitions
+		
+		Content
+		1. Buttons
+/*
+	=========== 1 Buttons ===========
+*/
+/*
+ * Large text box
+ */
+div.input-text-lg span {
+	height:27px;
+}
+div.input-text-lg span.input-cap-left {
+	background-position: 0px 0px;
+}
+div.input-text-lg span.input-field {
+	background-repeat: repeat-x;
+	background-position: 0px -32px;
+}
+div.input-text-lg span.input-cap-right {
+	background-position: 0px -64px;
+}
+div.input-text-lg input{
+    margin: 7px 3px 0;
+	height:14px;
+}
+.dj_ie7 div.input-text-lg input{
+	margin-top:5px;
+}
+
+/*
+ * Large text box w/ bold border
+ */
+div.input-text-lg.too-long span.input-cap-left {
+	background-position: 0px -168px;
+}
+div.input-text-lg.too-long span.input-field {
+	background-repeat: repeat-x;
+	background-position: 0px -200px;
+}
+div.input-text-lg.too-long span.input-cap-right {
+	background-position: 0px -232px;
+}
+
+
+
+
+
+
+/*
+ * Small text box
+ */
+div.input-text-sm span {
+	height: 20px;
+}
+div.input-text-sm span.input-cap-left {
+	background-position: 0px -95px;
+}
+div.input-text-sm span.input-field {
+	background-position: 0px -119px;	
+}
+div.input-text-sm span.input-cap-right {
+	background-position: 0px -143px;
+}
+
+div.input-text-sm input{
+	line-height:11px;
+    margin: 4px 3px 0;
+}
+
+.dj_ie div.input-text-sm input{
+	margin-top:5px;
+}
+.dj_ie8 div.input-text-sm input{
+	margin-top:8px;
+}
+
+span.required {
+	color: #2f6fa9;
+	/*margin-left:-5px;*/
+	font-weight:bold;
+	position:absolute;
+	left:-5px;
+}
+span.required-inline {
+	color: #2f6fa9;
+	font-weight:bold;
+}
+
+div#rss{
+	background:transparent url(../images/rss_icon.png) no-repeat left top;
+	height:14px;
+	line-height:14px;
+}
+	div#rss a{
+		position:relative;
+		text-indent:20px;
+		height:14px;
+		line-height:14px;
+		font-size:1.2em;
+		display:block;
+		width:170px;
+	}
+	div#rss a:focus,
+	div#rss a:hover{
+		color:#2f6fa9;
+	}
+
+
+            /* For all buttons */
+            .button-link {
+                display: block;
+            }
+            .button-link span {
+                display: block;
+                background-color: transparent;
+                background-image: url(../images/btn_sprite.png);
+                background-repeat: no-repeat;
+            }
+            
+            .button-link span .disabled-508-label{
+            	display:none;
+            	visibility:hidden;
+            }
+            .button-link span.disabled .disabled-508-label{
+            	display:block;
+            	visibility:visible;
+            }
+            
+            .button-link span .buttons {
+                display: block;
+                background-color: transparent;
+                background-image: url(../images/btn_sprite.png);
+                background-repeat: no-repeat;
+                text-decoration: none;
+                text-align: center;
+                float: left;
+                cursor:pointer;
+                border:none;
+                text-decoration:none !important;
+            }
+            .dj_ie7 .button-link span {
+                background-image: url(../images/btn_sprite.gif);
+            }
+            .dj_ie7 .button-link span .buttons {
+                background-image: url(../images/btn_sprite.gif);
+            }
+
+			.button-link.disabled span .buttons {
+				cursor:default;
+            }
+			
+            /* For regular-height buttons (non-pill) */
+            .btn-reg {
+                float: left;
+            }
+            
+            .btn-reg span {
+                float: left;
+                padding-left: 5px;
+            }
+            .btn-reg span .buttons {
+                height: 26px; 
+                line-height: 26px;
+                display: block;
+                padding-left: 15px;
+                padding-right: 20px;
+                font-weight: bold;
+                font-size: 12px;
+            }
+            
+            
+            /* Give each button one of these for color */
+            .btn-blue {
+                
+            }
+            .btn-grey {
+                
+            }
+
+            
+            /* Add .btn-icon to any button with an icon */
+            .btn-icon span {
+                padding-left: 34px;
+            }
+
+            /* Regular button backgrounds */
+            .btn-blue-reg span {
+                background-position: left 0;
+            }
+            .btn-blue-reg span .buttons {
+                color:#fff;
+            }
+            
+            .btn-grey-reg span {
+                background-position: left -78px;
+            }
+            .btn-blue-reg span .buttons {
+                background-position: right -187px;
+            }
+            
+            
+            .btn-grey-reg span .buttons {
+                color:#2f6fa9;
+            }
+            
+            .btn-grey-reg span .buttons {
+                background-position: right -265px;
+            }
+            
+            /* Regular button hovers */
+            .btn-blue-reg span.hover {
+                color:#fff;
+                background-position: left -26px;
+            }
+            .btn-blue-reg span.hover .buttons{
+                color:#ffffff !important;
+                background-position: right -213px;
+            }
+            
+            .btn-grey-reg span.hover {
+                background-position: left -104px;
+            }
+            
+            .btn-grey-reg span.hover .buttons {
+                color:#fff !important;
+                background-position: right -187px;
+            }
+            
+            /* Add one of these classes to apply an icon image */
+            .btn-cart-blue span {
+                background-position: left -478px;
+            }
+            .btn-cart-blue span.hover {
+                background-position: left -504px;
+            }
+
+            .btn-chevron-blue span {
+                background-position: left -556px;
+            }
+            .btn-chevron-blue span.hover {
+                background-position: left -582px;
+            }
+            
+            .btn-check-blue span {
+                background-position: left -452px;
+            }
+            .btn-check-blue span.hover {
+                background-position: left -452px;
+            }
+            
+            .btn-chevron-grey span {
+                background-position: left -374px;
+            }
+            .btn-chevron-grey span.hover {
+                background-position: left -556px;
+            }
+            
+            .btn-check-grey span {
+                background-position: left -426px;
+            }
+            .btn-check-grey span.hover {
+                background-position: left -452px;
+            }
+            
+            
+            /* Apply one of these classes to set a fixed button size */
+            .btn-size-A {width: 210px;}
+            .btn-size-A span {}
+            .btn-size-A span .buttons,
+            .btn-size-A span .buttons a{
+                width: 205px;
+                padding: 0 0 0 0;
+                color:#fff !important;
+            }
+            .btn-size-A span.disabled a.buttons{
+            	color:#999 !important;
+            }
+            
+            .btn-size-A-icon {width: 210px;}
+            .btn-size-A-icon span {}
+            .btn-size-A-icon span .buttons{
+                width: 176px;
+                padding: 0 0 0 0;
+            }
+            
+            .btn-size-B {width: 153px;}
+            .btn-size-B span {}
+            .btn-size-B span .buttons{
+                width: 148px;
+                padding: 0 0 0 0;
+            }
+            
+            .btn-size-B-icon {width: 153px;}
+            .btn-size-B-icon span {}
+            .btn-size-B-icon span .buttons{
+                width: 119px;
+                padding: 0 0 0 0;
+            }
+
+            /* Apply .disabled to a button's inner <span> to disable it */
+            .button-link span.disabled {
+                background-position:left -52px;
+                cursor:default;
+                opacity:1;
+                filter:none;
+            }
+
+            .btn-reg span.disabled .buttons {
+                background-position:right -239px;
+                cursor:default;
+                color:#999;
+            }
+            .btn-cart-blue span.disabled {
+                background-position: left -530px;
+            }
+
+
+
+.pill-btn span{
+    float:left;
+	padding-left:6px;
+	_padding-left:5px;
+	background:transparent url(../images/btn_sprite.png) no-repeat scroll left -149px;
+}
+
+
+.pill-btn .buttons,
+.pill-btn  a.buttons{
+	background:transparent url(../images/btn_sprite.png) no-repeat scroll right -336px;
+	padding-left:4px;
+	padding-right:10px;
+	font-size:9px;
+	font-weight:bold;
+	height:19px;
+	line-height:19px;
+	color:#2f6fa9;
+	text-transform:uppercase;
+}
+.dj_webkit .pill-btn .buttons,
+.dj_webkit .pill-btn  a.buttons{
+	line-height:20px;
+}
+
+span.pill-btn-blue span,
+span.pill-btn span.hover{
+	background-position: left -168px;
+}
+
+
+span.pill-btn-blue span.hover {
+	background-position: left -608px;
+}
+
+span.pill-btn-blue span .buttons,
+span.pill-btn span.hover .buttons, span.pill-btn span.hover a.buttons{
+	background-position: right -355px;
+	color:#fff;
+}
+
+span.pill-btn-blue span.hover .buttons,
+span.pill-btn-blue span.hover a.buttons {
+		background-position: right -627px;
+}
+
+.button-link.pill-btn .disabled , span.pill-btn span.disabled{
+	background-position:left -130px;
+	cursor:default;
+}
+
+span.pill-btn span.disabled {
+    background-position: left -130px;
+}
+
+span.pill-btn span.disabled .buttons,
+span.pill-btn span.disabled a.buttons{
+	background-position:right -317px;
+    color: #999; 
+    cursor: default;
+}
+					

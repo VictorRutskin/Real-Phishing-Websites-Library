@@ -1,0 +1,140 @@
+
+#modal-box_overlay {
+	position: fixed;
+	z-index: 10000;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background-color: #000;
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.40;
+	opacity: 0.40; 
+	background:#000;}
+	
+#modal-box_overlay-progress{
+	position: fixed;
+	z-index: 10001;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.40;
+	opacity: 0.40; 
+	background:url(../images/crt_rem_trans_dot_ani_whiteback.gif) no-repeat scroll center center;}
+	
+.modal-box {
+	width: 400px;
+	position: absolute;
+	z-index: 10002; }
+	
+	.modal-box #dialog-buttons{
+		height:26px;}
+		
+		.modal-box #dialog-buttons .button-link{
+			margin-right:12px}
+		
+		.modal-box #dialog-buttons .last{
+			margin-right:0;}
+	
+	.modal-box p{
+		margin-bottom:10px;}
+ 
+	.modal-box .modal-box-header {  }
+ 
+		.modal-box .modal-box-header .modal-box-header-left { background: url(../images/bg_popup_left_top.png) no-repeat left top; }
+ 
+			.modal-box .modal-box-header .modal-box-header-left .modal-box-header-right {
+				padding: 0 14px;
+				background: url(../images/bg_popup_right_top.png) no-repeat right top; }
+ 
+				.modal-box .modal-box-header .modal-box-header-left .modal-box-header-right .modal-box-header-mid {
+					height: 39px;
+					overflow:hidden;
+					zoom:1;
+					background: url(../images/bg_popup_top.png) repeat-x left top; }
+ 
+	.modal-box .modal-box-footer {  }
+ 
+		.modal-box .modal-box-footer .modal-box-footer-left { background: url(../images/bg_popup_left_bottom.png) no-repeat left bottom; }
+ 
+			.modal-box .modal-box-footer .modal-box-footer-left .modal-box-footer-right {
+				padding: 0 14px;
+				background: url(../images/bg_popup_right_bottom.png) no-repeat right bottom; }
+ 
+				.modal-box .modal-box-footer .modal-box-footer-left .modal-box-footer-right .modal-box-footer-mid {
+					height: 14px;
+					background: url(../images/bg_popup_bottom.png) repeat-x left bottom; }
+ 
+	.modal-box .modal-box-contentwrap {  }
+ 
+		.modal-box .modal-box-contentwrap .modal-box-contentwrap-left { background: url(../images/bg_popup_left_right.png) repeat-y left bottom; }
+ 
+			.modal-box .modal-box-contentwrap .modal-box-contentwrap-left .modal-box-contentwrap-right {
+				padding: 0 4px;
+				background: url(../images/bg_popup_left_right.png) repeat-y right bottom; }
+ 
+				.modal-box .modal-box-contentwrap .modal-box-contentwrap-left .modal-box-contentwrap-right .modal-box-contentwrap-mid { background: #ffffff url(../images/bg_popup_content.png) repeat-x left bottom; }
+ 
+	.modal-box #modalHeaderH2 {
+		color: #202020;
+		font-size: 13px;
+		font-weight: bold;
+		padding: 15px 0 0 0;
+		margin:0; }
+	.dj_ie7 .modal-box #modalHeaderH2 {	
+		line-height: 1;}
+	.modal-box #modal-box-content { padding: 10px 10px 0 10px; }
+ 
+	.modal-box #modal-box-closeModal {
+		background-image: url("../images/btn_popup_close.png");
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		cursor: pointer;
+		height: 34px;
+		overflow: hidden;
+		position: absolute;
+		right: -10px;
+		text-indent: -9000px;
+		top: -10px;
+		width: 34px; }
+ 
+		.modal-box #modal-box-closeModal:hover { background-position: -35px 0; }
+		
+		.modal-box .hide-fromsighted{top:auto;left:-9999em;}
+/*
+html.dj_ie6,
+.dj_ie6 body{
+	width:100%;
+	height:100%;}*/
+.dj_ie6 #modal-box_overlay,
+.dj_ie6 #modal-box_overlay-progress{
+     position: absolute;
+     height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');}
+
+.dj_ie6 .modal-box,
+.dj_ie6 .modal-box .modal-box-header,
+.dj_ie6 .modal-box .modal-box-header .modal-box-header-left,
+.dj_ie6 .modal-box .modal-box-header .modal-box-header-left .modal-box-header-right,
+.dj_ie6 .modal-box .modal-box-header .modal-box-header-left .modal-box-header-right .modal-box-header-mid{
+	zoom:1;}
+	 
+.dj_ie6 .modal-box .modal-box-header .modal-box-header-left { background: url(../images/bg_popup_left_top_ie6.png) no-repeat left top; }
+.dj_ie6 .modal-box .modal-box-header .modal-box-header-left .modal-box-header-right {background: url(../images/bg_popup_right_top_ie6.png) no-repeat right top; }
+.dj_ie6 .modal-box .modal-box-header .modal-box-header-left .modal-box-header-right .modal-box-header-mid {background: url(../images/bg_popup_top_ie6.png) repeat-x left top; }
+
+.dj_ie6 .modal-box .modal-box-footer .modal-box-footer-left { background: url(../images/bg_popup_left_bottom_ie6.png) no-repeat left bottom; }
+.dj_ie6 .modal-box .modal-box-footer .modal-box-footer-left .modal-box-footer-right {background: url(../images/bg_popup_right_bottom_ie6.png) no-repeat right bottom; }
+.dj_ie6 .modal-box .modal-box-footer .modal-box-footer-left .modal-box-footer-right .modal-box-footer-mid {background: url(../images/bg_popup_bottom_ie6.png) repeat-x left bottom; }
+
+.dj_ie6 .modal-box .modal-box-contentwrap .modal-box-contentwrap-left { background: url(../images/bg_popup_left_right_ie6.png) repeat-y left bottom; }
+.dj_ie6 .modal-box .modal-box-contentwrap .modal-box-contentwrap-left .modal-box-contentwrap-right { background: url(../images/bg_popup_left_right_ie6.png) repeat-y right bottom; }
+
+.dj_ie6 .modal-box #modal-box-closeModal{
+	background:none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='../images/btn_popup_close.png',sizingMethod='crop');}
+
+.dj_ie6 .modal-box #modal-box-closeModal.hover{
+	background:none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='/ContentTemplates/common/images/global/buttons/btn_popup_close-hover.png',sizingMethod='crop');}

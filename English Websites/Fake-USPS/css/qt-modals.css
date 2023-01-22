@@ -1,0 +1,557 @@
+/*	---------------------------------------------------------------
+		@filename		qt-modals.css
+		@author			aziz.syed@akqa.com
+		@description	quick tools modals style definitions
+		
+		Content
+		1. Quick Tools Modals
+		2. PO Locator Modal
+		3. Caclulate Price Modal
+/*
+	=========== 1. Quick Tools Modals ===========
+*/
+.quick-zip-tmp #modalHeaderH2{
+			background: transparent url(../images/ZIP_icon.png) 0 10px  no-repeat;
+			padding-bottom:6px !important;
+			padding-left:30px !important;}
+/*.quick-zip { color:#333; padding-top:25px !important; }*/
+.quick-zip { color:#333; }
+	.quick-zip .select-wrapper .select-options{height:28px;}
+	.quick-zip .select-wrapper .select-frame{top:-206px;}
+	
+	.quick-zip #qzerror-box *{
+		font-size:11px;}
+	.quick-zip #qzerror-box{
+		font-weight:bold;
+		margin-left:0px;
+		/*padding-bottom:18px;*/
+		position:relative;}
+	.quick-zip #qzerror-box .icn{
+		background:url("../images/icon_sprite.png") no-repeat scroll 0 -16px transparent;
+		display:block;
+		left:-18px;
+		position:absolute;
+		top:0;
+		width:16px;
+		height:16px;}
+
+	.quick-zip .by-required-p{position:relative;font-size:11px;margin-top:0px;margin-bottom:20px;}
+	.quick-zip .by-required-p span.required{left:0;position:relative;}
+	.quick-zip fieldset.hide { display: none; }
+	.quick-zip a{
+		text-decoration:none;}
+	.quick-zip fieldset {
+		border: none;
+		display: block;
+		padding-bottom: 15px; }
+ 
+	.quick-zip fieldset.for-sState {
+		float: left;
+		padding-bottom: 15px;
+		width: 100%;
+	}
+ 
+	.quick-zip fieldset.for-sState select{
+		margin-bottom:0;}
+ 
+	.quick-zip fieldset.for-tUrbanCode{}
+ 
+		.quick-zip fieldset.for-tUrbanCode input{
+			width:200px;}
+ 
+		.quick-zip fieldset.for-zip input{
+			width:75px;}
+ 
+		.quick-zip fieldset legend {
+			position:absolute;
+			left:-999em;
+			width:1px;}
+ 
+		.quick-zip fieldset label {
+			font-size: 1.2em;
+			line-height: 1.2em;
+			padding-bottom: 7px;
+			display: block;
+			margin-bottom: 0;
+			position:relative;}
+			
+		.quick-zip fieldset .input-text-wrapper {
+			margin:0;}
+ 
+		.quick-zip fieldset .text-input-large { width: 290px; }
+
+	.quick-zip #quick-zip-controls {  }
+ 
+		.quick-zip #quick-zip-controls .btn_find,
+		.quick-zip #quick-zip-controls .btn_listall { 
+			float: right;
+			margin-top:24px}
+ 
+		.quick-zip #quick-zip-controls #quick-zip-goto,
+			.quick-zip #quick-zip-controls #quick-zip-more{
+				font:bold 11px/17px Arial;
+				display: block;
+				text-decoration:none;}
+ 
+		.quick-zip #quick-zip-controls #quick-zip-goto { margin-bottom:-7px 0 7px 0; }
+ 
+		.quick-zip #quick-zip-controls #quick-zip-more { 
+			display: inline; 
+			background:url(../images/icn_arrow_blue_updown.png) no-repeat right 2px;
+			padding-right:14px;}
+ 
+		.quick-zip #quick-zip-controls #quick-zip-more .hided{
+			display:none;}
+		.quick-zip #quick-zip-controls #quick-zip-more.opened {
+			background-position:right -21px;}
+		.quick-zip #quick-zip-controls #quick-zip-more.opened .hided{
+			display:inline;}
+ 
+		.quick-zip #quick-zip-controls #quick-zip-more.opened .showed{
+			display:none;}
+			
+		.quick-zip #quick-zip-controls .btn_calculatearate,
+		.quick-zip #quick-zip-controls .btn_startalabel{
+			margin:10px 0 20px;}
+		.quick-zip #quick-zip-controls .btn_calculatearate{
+			margin-right:20px}
+			
+		.quick-zip #quick-zip-controls .btn_calculatearate a,
+		.quick-zip #quick-zip-controls .btn_startalabel a{width:101px;}
+
+			
+		.quick-zip #quick-zip-options{
+			padding-top:11px;}
+		.quick-zip #quick-zip-options .button-link a{
+			width:263px;}
+		.quick-zip #quick-zip-options .button-link{
+			margin-top:9px;}
+		.dj_ie6 .quick-zip #quick-zip-options .button-link{
+			float:none !important;}
+		.dj_ie6 .quick-zip #quick-zip-options .button-link a{
+			width:260px;}
+		.dj_ie7 .quick-zip #quick-zip-options .button-link a{
+			width:260px;}
+			
+.quick-zip .you-entered{
+	font:14px/15px Arial;
+	color:#666666;
+	border-bottom:1px solid #cccccc;
+	padding-bottom:20px;
+	margin-bottom:20px;}		
+.quick-zip .you-entered h4{
+	color:#000000;
+	font:bold 13px/14px Arial;
+	letter-spacing:.01em;
+	margin-bottom:10px}
+.quick-zip .you-entered p{
+	font:14px/14px Arial;
+	margin-bottom:0;}
+.quick-zip .your-results{
+	border-bottom:1px solid #cccccc;
+	padding-bottom:20px;}
+.quick-zip .your-results p{
+	font:11px/14px Arial;
+	color:#000000;
+	margin-bottom:20px;}
+.quick-zip .do-results-multiple  .your-results{
+	padding-bottom:20px;}
+.quick-zip .your-results p.notice{
+	margin:0;}
+.quick-zip .your-results p.error{
+	color:#f00;}
+	
+.quick-zip .your-results p.addy{
+	font:13px/15px Arial;
+	color:#666666;
+	text-transform:uppercase;}
+.quick-zip .your-results p.addy strong{
+	color:#000}
+	
+.quick-zip .your-results .button-link{
+	margin-right:20px;
+	display:inline-block;}
+.quick-zip .your-results .button-link span{
+	display:inline-block;
+	float:none;}
+	
+.quick-zip .your-results .single-controls{
+	height:19px;
+	overflow:hidden;}
+	
+.quick-zip #totalresults{
+	margin-bottom:0;
+	font-weight:bold;
+	margin-top:20px;
+}
+	
+.quick-zip #quick-zip-zip-result{
+	border-bottom:1px solid #cccccc;
+	padding-bottom:20px;
+	margin-bottom:20px;
+	display:none;}
+	.quick-zip #quick-zip-zip-result dl{}
+		.quick-zip #quick-zip-zip-result dl dt{
+			font:bold 12px/1 Arial;}
+			.quick-zip #quick-zip-zip-result dl dt .the-zip{
+				color:#3980c3;}
+		.quick-zip #quick-zip-zip-result dl dd{
+			font:14px/17px Arial;
+			text-transform:uppercase;}
+			
+			.quick-zip #quick-zip-zip-result dl dt.other-acpt{
+				padding-top:20px;}
+			.quick-zip #quick-zip-zip-result dl dd.other-acpt{}
+			
+			.quick-zip #quick-zip-zip-result dl dt.not-acpt{
+				padding-top:20px;
+				}
+			.quick-zip #quick-zip-zip-result dl dd.not-acpt{}
+	
+.quick-zip .quick-action-form{}
+	.quick-zip .quick-action-form #quick-zip-results{
+		display:none;}
+
+.quick-zip .do-address .for-company, .quick-zip .do-address p.for-zip, .quick-zip .do-address .btn_listall, .quick-zip .do-address .btn_calculatearate, .quick-zip .do-address .btn_startalabel, .quick-zip .do-address .btn_qz_address {
+    display: none;
+}
+
+.quick-zip .do-company p.for-zip, .quick-zip .do-company .btn_listall, .quick-zip .do-company .btn_calculatearate, .quick-zip .do-company .btn_startalabel, .quick-zip .do-company .btn_qz_company, .quick-zip .do-company .by-address-p {
+    display: none;
+}
+		
+.quick-zip .do-address{}
+	.quick-zip .do-address .for-company,
+		.quick-zip .do-address .btn_listall,
+		.quick-zip .do-address .btn_calculatearate,
+		.quick-zip .do-address .btn_startalabel,
+		.quick-zip .do-address .btn_qz_address{ display:none; }
+		
+.quick-zip .do-company{}
+		.quick-zip .do-company .btn_listall,
+		.quick-zip .do-company .btn_calculatearate,
+		.quick-zip .do-company .btn_startalabel,
+		.quick-zip .do-company .btn_qz_company,
+		.quick-zip .do-company .by-address-p{ display:none; }
+		
+.quick-zip .do-zip{}
+	.quick-zip .do-zip .for-address,
+	.quick-zip .do-zip .for-company,
+		.quick-zip .do-zip .btn_listall,
+		.quick-zip .do-zip .btn_calculatearate,
+		.quick-zip .do-zip .btn_startalabel,
+		.quick-zip .do-zip .btn_qz_zip,
+		.quick-zip .do-zip .by-required-p,
+		.quick-zip .do-zip #quick-zip-results,
+		.quick-zip .do-zip #by-zip-p-alt{ display:none; }
+		
+	
+.quick-zip .quick-action-results{}
+		
+.quick-zip .do-results-single{}
+	.quick-zip .do-results-single #quick-zip-div,
+	.quick-zip .do-results-single .btn_find,
+	.quick-zip .do-results-single #quick-zip-goto,
+	.quick-zip .do-results-single .for-multiple,
+	.quick-zip .do-results-single .for-company{
+		display:none !important;}
+		
+.quick-zip .do-results-company .for-single{display:none !important;}
+.quick-zip .do-results-company .for-company{display:block !important;}
+
+.quick-zip .do-results-multiple .single-controls,
+	.quick-zip .do-results-multiple #quick-zip-div,
+	.quick-zip .do-results-multiple .btn_find,
+	.quick-zip .do-results-multiple .for-single,
+	.quick-zip .do-results-multiple .for-company,
+	.quick-zip .do-results-multiple #quick-zip-goto{display:none !important;}
+	
+.quick-zip .do-results-multiple #quick-zip-controls #quick-zip-more{
+	margin-top:3px;
+	display:inline-block;}
+	
+.quick-zip .div-addtocontacts{padding-top:20px;
+	background:#f7f7f7;
+	padding:15px 10px;
+	margin-left:-10px;
+	margin-right:-10px;
+	border-top:1px solid #c6c6c6;
+	border-bottom:1px solid #c6c6c6;
+	margin-top:20px;}
+	.quick-zip .div-addtocontacts fieldset{}
+		.quick-zip .div-addtocontacts div.input-text-wrapper input { width: 290px; }
+		.quick-zip .div-addtocontacts #btn_canceladdcontact{
+			float:right;
+			margin-right:10px;
+			line-height:26px;}
+		.quick-zip .div-addtocontacts .button-link{
+			float:right;
+			margin:0;}
+
+	
+.quick-zip .do-results-zip .btn_qz_zip,
+.quick-zip .do-results-zip #by-zip-p,
+.quick-zip .do-results-zip .for-address,
+.quick-zip .do-results-zip .for-company,
+.quick-zip .do-results-zip .by-required-p,
+.quick-zip .do-results-zip #quick-zip-controls .btn_listall,
+.quick-zip .do-results-zip #quick-zip-controls .btn_calculatearate,
+.quick-zip .do-results-zip #quick-zip-controls .btn_startalabel,
+.quick-zip .do-results-zip #by-zip-p,
+.quick-zip .do-results-zip #your-results,
+.quick-zip .do-results-zip .you-entered{display:none}
+
+.quick-zip .do-results-zip #quick-zip-zip-result{display:block}
+.quick-zip .do-results-zip #by-zip-p-alt{
+		margin-bottom: 15px !important;
+		display:block;
+		font:14px/14px Arial;
+		color:#000;}
+	
+.quick-zip .do-results-no-results{}
+	.quick-zip .do-results-no-results #quick-zip-div,
+	.quick-zip .do-results-no-results .btn_find,
+	.quick-zip .do-results-no-results #quick-zip-goto,
+	.quick-zip .do-results-no-results .for-multiple,
+	.quick-zip .do-results-no-results .for-company,
+	.quick-zip .do-results-no-results .for-single,
+	.quick-zip .do-results-no-results .single-controls,
+	.quick-zip .do-results-no-results .btn_calculatearate,
+	.quick-zip .do-results-no-results .btn_startalabel  {
+		display:none !important;}
+		
+.quick-zip .do-results-no-results #quick-zip-more{
+	display:inline-block !important;
+	margin-top:20px}
+	
+.quick-zip #div-addtocontacts-confirm{
+	padding-top:10px;}
+.quick-zip #div-addtocontacts-confirm p{
+	margin:0;}
+		color:#000;}
+	
+.quick-zip .do-results-no-results{}
+	.quick-zip .do-results-no-results #quick-zip-div,
+	.quick-zip .do-results-no-results .btn_find,
+	.quick-zip .do-results-no-results #quick-zip-goto,
+	.quick-zip .do-results-no-results .for-multiple,
+	.quick-zip .do-results-no-results .for-company,
+	.quick-zip .do-results-no-results .single-controls,
+	.quick-zip .do-results-no-results .btn_calculatearate,
+	.quick-zip .do-results-no-results .btn_startalabel  {
+		display:none !important;}
+		
+.quick-zip .do-results-no-results #quick-zip-more{
+	display:inline-block !important;
+	margin-top:20px}
+	
+.quick-zip #div-addtocontacts-confirm{
+	padding-top:20px;
+	background:#f7f7f7;
+	padding:15px 10px;
+	margin-left:-10px;
+	margin-right:-10px;
+	border-top:1px solid #c6c6c6;
+	border-bottom:1px solid #c6c6c6;
+	margin-top:20px;}
+.quick-zip #div-addtocontacts-confirm p{
+	margin:0;}
+	
+/**
+	* for quicktools modals
+	*/
+	#modals #modal-header.qtt h2 , #modal-box #modalHeaderH2.qtt  {
+			background: transparent url(../images/TC_icon.png) 0px 10px no-repeat;
+			padding-left: 30px;
+			padding-bottom: 6px;
+	}
+	#modals #modal-header.qtz h2 , #modal-box #modalHeaderH2.qtz  {
+			background: transparent url(../images/ZIP_icon.png) 0px 10px  no-repeat;
+			padding-left: 30px;
+			padding-bottom: 6px;
+	}
+	#modals #modal-header.qtl h2 , #modal-box #modalHeaderH2.qtl {
+			background: transparent url(../images/POL_icon.jpg) 0px 10px  no-repeat;
+			padding-left: 32px;
+			padding-bottom: 6px;
+	}
+	
+	#modals #modal-header.qtc h2 , #modal-box #modalHeaderH2.qtc {
+			background: transparent url(../images/CALC_icon.jpg) 0px 10px  no-repeat;
+			padding-left: 32px;
+			padding-bottom: 6px;
+	}
+
+	div#qtz {
+		background: transparent url(../images/qt_ZIP_fake.jpg) no-repeat;
+		width: 306px;
+		margin: 0px 10px;
+		height: 376px;
+	}
+	div#qtt {
+		background: transparent url(../images/qt_TC_fake.jpg) no-repeat;
+		width: 299px;
+		margin: 0px 13px;
+		height: 268px;
+	}
+	
+/*
+	=========== 2. PO Locator Modal ===========
+*/
+	
+	#po-locator .required-fields{
+		position:relative;
+	}
+	
+	#po-locator label{
+		font-size:1.2em;
+		padding-bottom:7px;
+		display:block;
+		position:relative;
+	}
+	
+	
+	#po-locator .text-input-large {
+		width:290px;
+	}
+	
+	#po-locator .select-wrapper , #po-locator .input-text-wrapper{
+		margin-bottom:20px;
+	}
+	
+	#po-locator #distance-holder{
+		float:left;
+	}	
+	
+	#po-locator #distance-holder .select-wrapper{
+		margin-bottom:0px;
+	}
+	
+	#po-locator #results-button{
+		float:right;
+		margin-top:30px;
+		width:124px;
+	}
+	
+	#po-locator #results-button .buttons{
+		width:84px;
+		_width:124px;
+		_padding-left:0px;
+		_padding-right:0px;
+		_text-align:center;
+	}
+	#po-locator #sDistance{
+		width:140px;
+	}
+	
+	#po-locator #sStateQuick{
+		width:220px;
+	}	
+			
+	#po-locator #address-block .select-wrapper .select-frame {
+		top:-261px;
+	}		
+	#po-locator #distance-holder .select-wrapper .select-frame {
+		top:-238px;
+	}	
+	
+	#po-locator #qlerror-box {
+		font-weight:bold;
+		margin-left:18px;
+		padding-bottom:18px;
+		position:relative;
+	}
+	
+	#po-locator #qlerror-box .icn{
+		background:url("../images/icon_sprite.png") no-repeat scroll 0 -16px transparent;
+		display:block;
+		left:-18px;
+		position:absolute;
+		top:0;
+		width:16px;
+		height:16px;}	
+		
+	
+	
+/*
+	=========== 3. Caclulate Price Modal ===========
+*/		
+	
+	#quick-calc .required-fields{
+		position:relative;
+	}
+		
+	#quick-calc label{		
+		position:relative;	
+		font-size:1.2em;
+		font-weight:bold;	
+		display:block;
+		margin-bottom:7px;
+	}
+	
+	#quick-calc .input-section{
+		margin-bottom:20px;
+		padding:0px 0px 0px 0px;
+	}
+	
+	#quick-calc .input-section.hr{
+		height:1px;
+		line-height:1px;
+		overflow:hidden;
+		display:block;
+		background-color:#d9d9d9;
+		width:302px;
+	}
+	
+	#quick-calc #results-button{
+		float:right;
+	}
+	
+	#quick-calc select{
+		width:302px;
+	}	
+	
+	#quick-calc .icn {
+		background:transparent url(../images/icon_sprite.png) no-repeat scroll 0 -16px;
+		display:block;
+		height:16px;		
+		top:0;
+		width:16px;
+		float:left;
+		margin-right:8px;
+	}
+	
+	#quick-calc #quickCountrySection{
+		position:relative;
+		z-index:2;
+	}		
+	
+	#quick-calc #quickPackageSection{
+		position:relative;
+		z-index:1;
+	}
+	
+	#quick-calc .clear{
+		height:1px;
+		overflow:hidden;
+	}				
+
+/*added BV provided by Sean*/	
+	.quick-zip .by-address-p,
+	.quick-zip .by-company-p {margin-bottom: 0;}
+	.quick-zip fieldset.pos_down {position: relative; bottom: -55px; left:-88px; margin-bottom: 10px;}
+	.quick-zip fieldset#qz-tUrbanCode-wrap{clear:both; padding-top: 15px;}
+	.quick-zip #quick-zip-options {float: left; width: 100%;}
+	.quick-zip .do-results-single .your-results {padding-bottom: 0;}
+	.quick-zip .quick-zip-links {padding:16px 0px 0px;}
+	.quick-zip .do-results-single .single-controls {display: none !important;}
+	.zip-results-wrapper {font-size:12px; margin-bottom:10px;}
+	.quick-zip .do-results-single .quick-zip-links {clear: both}
+	.quick-zip .do-results-single #quick-zip-controls .btn_startalabel {margin-bottom: 10px; float: right;}
+	
+.quick-zip #quick-zip-controls #quick-zip-goto {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}

@@ -1,0 +1,81 @@
+/*	---------------------------------------------------------------
+		@filename		text-fields.css
+		@author			aziz.syed@akqa.com
+		@description	text fields global style definitions
+		
+		Content
+		1. Text fields
+/*	
+	=========== 1. Text fields ===========
+*/
+/*
+ * Styled text fields. Container must have the class "input-text-wrapper"
+ * and one of the variant classes (input-text-lg, input-text-sm, etc.)
+ */
+input.text {
+    border:none;
+    background:transparent url(../images/blank.gif) repeat;
+    color:#636363;
+    font-family:Arial;
+    font-size:12px;
+    padding:0;
+}
+
+div.input-text-wrapper {
+    display: inline-block;
+}
+
+div.input-text-wrapper span.input-dollar-sign{
+	width:1.3em;
+	height:27px;
+	line-height:27px;
+	float:left;
+	display:inline-block;
+}
+
+div.input-text-wrapper span.input-cap-left,
+div.input-text-wrapper span.input-field,
+div.input-text-wrapper span.input-cap-right {
+	float:left;
+	background-image: url(../images/text-box.gif);
+	background-color: transparent;
+}
+
+div.input-text-wrapper span.input-cap-left {
+	width: 3px;
+	background-repeat: no-repeat;
+}
+div.input-text-wrapper span.input-cap-right {
+	width: 3px;
+	background-repeat: no-repeat;
+}
+
+div.input-text-wrapper span.input-field {
+    
+}
+
+/*
+ * Built-in clearfix so we don't have to repeat classname in the html
+ */
+div.input-text-wrapper:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+} 
+ 
+html[xmlns] div.input-text-wrapper {
+    display: block;
+} 
+* html div.input-text-wrapper {
+    height: 1%;
+}
+
+div.input-text-wrapper input{
+	color:#363636;
+	font-size:11px;
+	vertical-align:top;
+	padding-top:0;
+}						
