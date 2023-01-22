@@ -1,0 +1,260 @@
+/*Enter User Defined CSS for TinyMCE Styles Drop Down */
+
+.Test-Bold {font-weight:bold}
+.Test-Italic {font-style:italic}
+.Test-Red-Text {color:red}
+.Test-Large-Text {font-size:200%}
+
+
+
+html {
+font-size:62.5% !important;
+}
+#skip-nav {
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+  font-size: 1.3rem;
+  height: 1px;
+  height: 0.1rem;
+  line-height: 34px;
+  line-height: 3.4rem;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  -moz-transition: height 200ms ease-out,background 200ms linear;
+  -ms-transition: height 200ms ease-out,background 200ms linear;
+  -webkit-transition: height 200ms ease-out,background 200ms linear;
+  -webkit-transition-property: height, background;
+  -webkit-transition-duration: 200ms, 200ms;
+  -webkit-transition-timing-function: ease-out, linear;
+  -webkit-transition-delay: initial, initial;
+  transition: height 200ms ease-out,background 200ms linear;
+  transition-property: height, background;
+  transition-duration: 200ms, 200ms;
+  transition-timing-function: ease-out, linear;
+  transition-delay: initial, initial;
+  width: 230px;
+  z-index: 9999;
+}
+
+/* Fixes for ForeSee Badge Styling */
+
+._acsbadge._acsbottomright._acsVertical_right, ._acsreport._acsbottomright._acsVertical_right
+{
+    padding-right: 1.5em;
+    letter-spacing: .1em;
+}
+
+._acsbadge {
+	font-size: 100% !important;
+}
+
+
+
+
+.left-nav li {
+    margin: 0px 0px !important;
+}
+a.left-nav--link {
+    padding: 0px 0px;
+    padding-left: 20px;
+	padding-right: 0px;
+}
+
+a.left-nav--link.active {
+    padding: 0px 0px;
+    padding-left: 20px;
+	padding-right: 0px;
+    margin: unset !important;
+}
+
+li.parent.open a.left-nav--link {
+    background-color: #CCCBCB;
+}
+
+
+.left-nav ol>li ol {
+	font-size: 1.0rem;
+	font-size:10px;
+	background-color: #FFFFFF;
+}
+.left-nav ol>li ol>li {
+    margin: 0 0px !Important;
+}
+.left-nav ol>li ol>li a {
+    color: #333366;
+    display: block;
+    font-size: 13px;
+    line-height: 40px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.left-nav ol>li ol>li a {
+    padding: 0px 0px;
+    padding-left: 30px;
+	padding-right: 0px;
+}
+
+.left-nav li.parent.open ol>li {
+	display: block !important;
+}
+
+.left-nav ol>li ol>li {
+    border-bottom: 1px solid #F7F7F7;
+    margin: 0 29px;
+}
+
+.left-nav ol>li ol>li a.active {
+    margin: 0px 0px !important;
+}
+
+.left-nav ol>li a.active {
+    margin: 0px 0px !important;
+}
+
+
+.left-nav ol>li ol>li a {
+    padding: 0px 21px !important;
+}
+
+.left-nav li.parent ol>li a.active {
+    border-bottom: 1px solid #e9e9e9;
+    border-top: 1px solid #e9e9e9;
+	font-weight: bold;
+    background-color: #fff !important;
+    color: #333366  !important;
+}
+.left-nav li.parent ol>li a.active:hover {
+	font-weight: bold;
+    background-color: #ececec !important;
+}
+
+
+.no-touch .left-nav ol>li ol .left-nav ol>li ol>li a:hover, .no-touch .left-nav ol>li ol .left-nav ol>li ol>li a:focus {
+    background-color: #ececec;
+    color: #202020;
+    margin: 0 -28px;
+    padding: 0 0px;
+	padding-left: 20px;
+}
+
+.no-touch .left-nav ol>li ol .left-nav ol>li ol>li a:hover, .no-touch .left-nav ol>li ol .left-nav ol>li ol>li a:focus {
+    background-color: #ececec;
+    color: #202020;
+    margin: 0px 0px !important;
+	padding: unset !important;
+    padding-left: 29px !important;
+    padding-right: 20px !important;
+}
+.no-touch .left-nav .left-nav--link:hover, .no-touch .left-nav .left-nav--link:focus {
+    margin: 0px 0px !important;
+	padding: unset !important;
+	padding-left: 20px !important;
+}
+
+.left-nav .parent a.left-nav--link::after {
+	content: '';
+    width: 10px;
+    height: 10px;
+    background-image: url('../fonts/usps_l_nav_red_arrow.svg');
+    background-size: 12px 12px;
+	position: absolute;
+	right: 15px;
+	top: 17px;
+}
+.left-nav  li.parent.open a.left-nav--link::after {
+	content: '';
+    width: 10px;
+    height: 10px;
+    background-image: url('../fonts/usps_l_nav_red_arrow.svg');
+    background-size: 12px 12px;
+	background-size: unset !important;
+	position: absolute;
+	right: 15px;
+	top: 17px;	
+	-webkit-transform: rotate(180deg);
+    -moz-transition: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+
+}
+
+.left-nav  li.parent.open ol>li a.left-nav--link::after {
+	background-image: unset !important;
+	background-image: none !important;
+}
+.left-nav .parent span {
+    width: 171px;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+}
+
+.left-nav  li.parent.open ol>li a:hover {
+	background-color: #ececec !important;
+	padding: 0 0 !important;
+	padding-left: 40px !important;
+}
+
+.left-nav  li.parent.open ol>li a {
+	padding: 0 0 !important;
+	padding-left: 40px !important;
+}
+
+
+
+
+.left-nav  li.parent.open a.left-nav--link {
+	background-color: #EDEDED;
+	color: #333366;
+}
+
+.left-nav  li.parent.open ol>li a.left-nav--link {
+	background-color: #fff;
+}
+
+.no-touch .left-nav .left-nav--link.active:hover, .no-touch .left-nav .left-nav--link.active:focus {
+    background-color: #F7F7F7 !important;
+    color: #333366 !important;
+	}
+	.left-nav  li.parent.open a.left-nav--link:hover,.left-nav  li.parent.open a.left-nav--link:focus {
+	background-color: #F7F7F7;
+	color: #333366;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 958px){
+	.left-nav  .parent span {
+		width: 126px;
+	}
+	.left-nav  .parent a.left-nav--link::after {
+		margin-left: 138px;
+	}
+}
+
+.left-nav .left-nav--link.active {
+	background-color:#333366 !important;
+    color: #FFFFFF !important;
+}
+.left-nav  li.parent.open a.left-nav--link.active::after {
+    background: url(../images/icon-arrow-white.png) no-repeat 0 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transition: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.landing-hero-component .landing-hero-component--image {
+    display: block;
+    width: 100%;
+}

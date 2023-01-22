@@ -1,0 +1,218 @@
+/*	---------------------------------------------------------------
+		@filename		modals.css
+		@author			aziz.syed@akqa.com
+		@description	global modals style definitions
+		
+		Content
+		1. Modals
+		2. Product Added Modals
+/*
+	=========== 8. Modal ===========
+*/
+
+div.force-modal-close{
+	display:none;
+}
+#modals{
+	position:absolute;
+	z-index:10000;
+	top:0px;
+	left:0px;
+	display:none;
+	min-width:960px;
+}
+	#lightbox-background{
+		position:absolute;
+		z-index:10001;
+		top:0px;
+		left:0px;
+		height:500px;
+		width:700px;
+	}
+	#modal-positioner{
+		margin:0 auto;
+		position:relative;
+		z-index:10002;
+	}
+		#modal-window{
+			position:absolute;
+			z-index:10003;
+		}
+			#modal-window-inner{
+			}
+			
+				#modal-window-inner div{
+					position:absolute;
+				}
+		
+				#modal-corner-tl{
+					background:transparent url(../images/popup_top_l_corner.png) no-repeat 0px 0px;
+					height:38px;
+					width:9px;
+					top:0px;
+					left:0px;
+				}
+				#modal-corner-tr{
+					background:transparent url(../images/popup_top_r_corner.png) no-repeat 0px 0px;
+					height:38px;
+					width:9px;
+					top:0px;
+					right:0px;
+				}
+				#modal-corner-bl{
+					background:transparent url(../images/popup_btm_l_corner_v2.png) no-repeat 0px 0px;
+					height:52px;
+					width:9px;
+					bottom:0px;
+					left:0px;
+				}
+				#modal-corner-br{
+					background:transparent url(../images/popup_btm_r_corner_v2.png) no-repeat 0px 0px;
+					height:52px;
+					width:9px;
+					bottom:0px;
+					right:0px;
+				}
+				#modal-repeat-left{
+					background:transparent url(../images/popup_l_border.png) repeat-y 0px 0px;
+					height:100px;
+					width:9px;
+					top:38px;
+					left:0px;
+				}
+				#modal-repeat-right{
+					background:transparent url(../images/popup_r_border.png) repeat-y 0px 0px;
+					height:100px;
+					width:9px;
+					top:38px;
+					right:0px;
+				}
+				#modal-repeat-top{
+					background:transparent url(../images/popup_top_bg_repeat.png) repeat-x 0px 0px;
+					height:38px;
+					width:100px;
+					top:0px;
+					left:9px;
+				}
+				#modal-repeat-bottom{
+					background:transparent url(../images/popup_btm_bg_repeat_v2.png) repeat-x 0px 0px;
+					height:52px;
+					width:100px;
+					bottom:0px;
+					left:9px;
+				}
+				#modal-insider{
+					margin:38px 9px 52px 9px;
+					height:0;
+					width:0;
+					position:absolute;
+					top:0px;
+					left:0px;
+					background-color:white;
+				}
+				
+				.gray-cap 	#modal-corner-bl{
+					background:transparent url(../images/popup_btm_l_corner.png) no-repeat 0px 0px;
+				}
+				.gray-cap #modal-corner-br{
+					background:transparent url(../images/popup_btm_r_corner.png) no-repeat 0px 0px;
+				}
+				.gray-cap #modal-repeat-bottom{
+					background:transparent url(../images/popup_btm_bg_repeat.png) repeat-x 0px 0px;
+				}
+	
+		#modals div.modal{
+			position:relative;
+			z-index:10004;
+			padding:0px 4px;
+			display:none;
+		}
+		
+		#modals #modal-header{
+			font-weight:bold;
+			font-size:1.3em;
+			position:relative;
+			z-index:10004;
+			height:38px;
+			text-indent:15px;
+			line-height:38px;
+		}
+		
+		#modals #modal-header h2{
+			background-image:none;
+			font-size:1em;
+			padding-top: 14px;
+		}
+		
+		#modal-track{}
+		#modal-location{}
+		#modal-price{}
+		#modal-zip{}
+
+		#modals #btn-modal-close{
+			height:34px;
+			width:35px;
+			top:-5px;
+			right:-5px;
+			position:absolute;
+			z-index:10005;
+			overflow:hidden;
+			cursor:pointer;
+		}
+			#modals #btn-modal-close div.wrapper{
+				background:transparent url(../images/btn_popup_close.png) no-repeat 0px 0px;
+				height:34px;
+				width:69px;
+				text-indent:-150px;
+			}
+
+			#modals #btn-modal-close.hover div.wrapper{
+				background-position:-35px 0px;
+			}
+
+/*
+	=========== 2. Product Added Modal ===========
+*/
+
+#modal-product-cart-base{
+}
+
+	#modal-product-cart-base #product-cart-item-container,
+	#modal-product-cart-base #product-cart-item-container2{
+		margin:10px 0px;
+	}
+
+		#modal-product-cart-base #product-cart-item-dtl,
+		#modal-product-cart-base #product-cart-item2-dtl{
+			width:200px;
+		}
+
+		#modal-product-cart-base #product-cart-item-container span,
+		#modal-product-cart-base #product-cart-item-container2 span{
+			display:block;
+		}
+	
+		#modal-product-cart-base #product-cart-item-container img,
+		#modal-product-cart-base #product-cart-item-container2 img{
+			padding:0px 15px;
+		}
+
+	#product-cart-item-container2{
+		display:none;
+	}
+
+	
+	
+	
+.dijitRadio, .dijitRadioIcon {
+	background-image:url(../images/btns_rndradio_offon.gif);
+	background-position:0pt 0pt;
+	background-repeat:no-repeat;
+	height:16px;
+	margin:0pt;
+	width:16px;
+}
+.dijitRadioChecked, .dijitToggleButtonChecked .dijitRadioIcon {
+	background-position:0pt -15px;
+	background-repeat:no-repeat;
+}					

@@ -1,0 +1,90 @@
+/*	---------------------------------------------------------------
+		@filename		links.css
+		@author			aziz.syed@akqa.com
+		@description	links global style definitions
+		
+		Content
+		1. Links
+/*
+	=========== 1 Links ===========
+*/
+a{
+	color:#2f6fa9;
+	text-decoration:underline;
+}
+
+a.primary,
+a.standard,
+a.tertiary{
+	font-size:12px;
+}
+a.primary{
+	font-weight:bold;
+	color:#2f6fa9;
+	text-decoration:none;
+}
+a.standard{
+	color:#2f6fa9;
+}
+a.tertiary{
+	color:#999;
+}
+a.standard,
+a.tertiary{
+	text-decoration:underline;
+}
+a.primary:focus,
+a.standard:focus,
+a.tertiary:focus,
+a.primary:hover,
+a.standard:hover,
+a.tertiary:hover{
+	color:#656565;
+}
+a.info-icon,
+a.info-icon-end{
+	background:transparent url(../images/info_tooltip_icon.gif) no-repeat 0px 0px;
+	line-height:16px;
+	display:block;
+	text-indent:20px;
+	text-decoration:none;
+}
+a.info-icon:focus,
+a.info-icon-end:focus,
+a.info-icon:hover,
+a.info-icon-end:hover{
+	background-position:0px -18px;
+	color:#656565;
+}
+a.info-icon-end{
+	text-indent:0;
+	background-position:right top;
+	padding-right:22px;
+	text-decoration:none;
+}
+a.info-icon-end:focus,
+a.info-icon-end:hover{
+	background-position:right -18px;
+}
+
+
+a.info-icon-end-alt{
+	background:none;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+a.info-icon-end-alt img{
+	background:transparent url(../images/info_tooltip_icon.gif) no-repeat 0px 0px;
+	vertical-align:bottom;
+}
+
+a.info-icon-end-alt:hover img{
+	background-position:0px -18px;
+}
+
+a[disabled=true].info-icon-end-alt:hover img{
+	background-position:0px 0px;
+	cursor:default;
+}
+}						

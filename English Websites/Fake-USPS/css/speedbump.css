@@ -1,0 +1,43 @@
+.rtitle {
+	font-weight: bold;
+	font-size: 3.2rem;
+} 
+
+.redirect {
+	margin: 15px;
+	margin-right: 20%;
+}
+
+.re-title {
+	font-weight: bold;
+	font-size: 26px;
+}
+
+.re-text {
+	line-height: 1.5;
+	margin-top: 35px;
+	font-size: 22px;
+}
+
+.re-text a {
+	font-weight: bold;
+	margin: 15px;
+	font-size: 18px;
+}
+
+.col--wrap, .col--full-width {
+	margin-bottom: 0px !important;
+}
+
+p.rtext {
+	font-size: 2rem !important;
+	line-height: 3rem !important;
+}
+
+.re-text-link a {
+	font-size: 2rem !important;
+}
+
+.col--full-width {
+	padding-right: 25% !important;
+}
